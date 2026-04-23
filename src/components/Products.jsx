@@ -14,6 +14,7 @@ const Products = () => {
     useEffect(() =>{
         dispatch(fetchProducts());
     },[dispatch]);
+
 //     const products = [
 // {
 //       productId: 652,
