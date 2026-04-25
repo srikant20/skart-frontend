@@ -7,13 +7,14 @@ import Filter from "./Filter";
 import useProductFilter from "./useProductFilter";
 import { MagnifyingGlass } from "react-loader-spinner";
 import Loader from "./Loader";
+import Paginations from "./Paginations";
 const Products = () => {
 
     const {isLoading, errorMessage} = useSelector(
         (state) => state.errors
     );
 
-    const { products, categories } = useSelector (
+    const { products, categories, pagination } = useSelector (
         (state) => state.products,
     )
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const Products = () => {
 
         <div className="lg:px-14 sm-px-8 px-4 py-14 2xl:w-[90%] 2xl:mx-auto">
             <Filter categories={categories ? categories : []}/>
-            {true ? (
+            {isLoading ? (
                 <Loader />
             ) : errorMessage ? (
                 <div className="flex justify-center items-center h-50">
@@ -42,6 +43,10 @@ const Products = () => {
                     </div>
                 </div>
             )}
+            <div className="flex justify-center pt-10">
+                <Paginations numberOfPages= {pagination?.totalPages} 
+                totalProducts = {pagination?.totalElements}/>
+            </div>
         </div>
     )
 }
