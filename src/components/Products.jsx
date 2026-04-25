@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { fetchCategories } from "../stores/actions";
 import Filter from "./Filter";
 import useProductFilter from "./useProductFilter";
+import { MagnifyingGlass } from "react-loader-spinner";
+import Loader from "./Loader";
 const Products = () => {
 
     const {isLoading, errorMessage} = useSelector(
@@ -25,8 +27,8 @@ const Products = () => {
 
         <div className="lg:px-14 sm-px-8 px-4 py-14 2xl:w-[90%] 2xl:mx-auto">
             <Filter categories={categories ? categories : []}/>
-            {isLoading ? (
-                <p>Loading...</p>
+            {true ? (
+                <Loader />
             ) : errorMessage ? (
                 <div className="flex justify-center items-center h-50">
                     <FaExclamationTriangle className="text-slate-800 text-3xl mr-2"/>
