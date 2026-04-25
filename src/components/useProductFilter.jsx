@@ -11,11 +11,11 @@ const useProductFilter = () => {
         const params = new URLSearchParams();
 
         const currentPage = searchParams.get("page") 
-            ? Number(searchParams.get("Page")) : 1;
+            ? Number(searchParams.get("page")) : 1;
         
         params.set("pageNumber", currentPage - 1);
 
-        const sortOrder = searchParams.get("sortby") || "asc";
+        const sortOrder = searchParams.get("sortOrder") || "asc";
         const categoryParams = searchParams.get("category") || null;
         const keyword = searchParams.get("keyword") || null;
         params.set("sortby", "price");
@@ -25,7 +25,7 @@ const useProductFilter = () => {
             params.set("category", categoryParams);
         }
 
-        if(categoryParams){
+        if(keyword){
             params.set("keyword", keyword);
         }
 
