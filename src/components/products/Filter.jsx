@@ -14,13 +14,6 @@ import {
 
 
 const Filter = ({categories}) => {
-    // const categories = [
-    //     { categoryId: 1, categoryName: "Electronics"},
-    //     { categoryId: 2, categoryName: "Clothing"},
-    //     { categoryId: 3, categoryName: "Furniture"},
-    //     { categoryId: 4, categoryName: "Books"},
-    //     { categoryId: 5, categoryName: "Toys"},
-    // ];
 
     useSearchParams();
     useLocation();
@@ -76,7 +69,6 @@ const Filter = ({categories}) => {
     const toggleSortOrder = () =>{
         setSortOrder ((prevOrder) =>{
             const newOrder = (prevOrder === "asc") ? "desc" : "asc";
-            console.log('New order: ', newOrder)
             params.set("sortOrder", newOrder);
             console.log("params: ", params)
             navigate(`${pathname}?${params}`);

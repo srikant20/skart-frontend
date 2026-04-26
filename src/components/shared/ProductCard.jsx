@@ -50,10 +50,12 @@ const ProductCard = ({
                     specialPrice,
                 })
                 }} className="text-lg font-semibold mb-2 cursor-pointer">
-                    {truncateText(productName)}
+                    {truncateText(productName, 43)}
                 </h2>
                 <div className="min-h-20 max-h-20">
-                    <p className="text-gray-600 text-sm">{ truncateText(description)}</p>
+                    <p className="text-gray-600 text-sm">
+                        { truncateText(description, 230)}
+                    </p>
                 </div>
                 <div className="flex items-center justify-between">
                 {specialPrice ? (
